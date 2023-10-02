@@ -1210,7 +1210,7 @@ static noinline void __init kernel_init_freeable(void)
 	load_default_modules();
 }
 
-//关闭selinux
+//关闭selinux- 第一个修改
 static int __init my_init(void)
 {
     /* 设置 selinux_enforcing 为 0 */
