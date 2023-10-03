@@ -92,7 +92,6 @@
 #include <linux/rodata_test.h>
 #include <linux/jump_label.h>
 #include <linux/bootprof.h>
-#include <linux/selinux.h>
 #include <asm/io.h>
 #include <asm/setup.h>
 #include <asm/sections.h>
@@ -1210,14 +1209,3 @@ static noinline void __init kernel_init_freeable(void)
 	load_default_modules();
 }
 
-//关闭selinux- 第一个修改
-static int __init my_init(void)
-{
-    /* 设置 selinux_enforcing 为 0 */
-    selinux_enforcing = 0;
-	
-    /* 继续启动系统 */
-    return 0;
-}
-
-module_init(my_init);
